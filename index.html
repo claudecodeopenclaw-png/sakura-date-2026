@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3/29 東京花見デート | 7パターンスケジュール提案</title>
+    <title>3/29 東京花見デート | 7パターンスケジュール完全ガイド</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;900&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -11,317 +14,380 @@
             box-sizing: border-box;
         }
         
+        html {
+            scroll-behavior: smooth;
+        }
+        
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Kaku Gothic ProN', sans-serif;
+            font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: #333;
+            color: #2d3436;
             min-height: 100vh;
-            padding: 20px;
+            padding: 16px;
         }
         
         .container {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
         }
         
+        /* ==================== ヘッダー ==================== */
         header {
             text-align: center;
             color: white;
-            margin-bottom: 40px;
-            animation: fadeIn 0.6s ease-in;
+            margin-bottom: 48px;
+            animation: fadeIn 0.8s ease-in;
+            padding: 40px 20px;
         }
         
         header h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            font-size: clamp(1.8em, 5vw, 3em);
+            margin-bottom: 12px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+            font-weight: 900;
+            letter-spacing: 0.05em;
         }
         
         header p {
-            font-size: 1.1em;
+            font-size: 1.05em;
             opacity: 0.95;
+            margin-bottom: 8px;
+            font-weight: 500;
         }
         
+        header .subtitle {
+            font-size: 0.95em;
+            opacity: 0.9;
+        }
+        
+        /* ==================== 基本情報ボックス ==================== */
         .info-box {
             background: white;
-            border-radius: 15px;
-            padding: 25px;
-            margin-bottom: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            border-top: 6px solid #d946ef;
         }
         
         .info-box h2 {
             color: #667eea;
-            margin-bottom: 15px;
-            font-size: 1.4em;
+            margin-bottom: 20px;
+            font-size: 1.3em;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .info-box h2::before {
+            content: '📍';
+            font-size: 1.2em;
         }
         
         .info-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
-            margin-bottom: 15px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
         }
         
         .info-item {
-            background: #f8f9ff;
-            padding: 15px;
-            border-radius: 8px;
-            border-left: 4px solid #667eea;
+            background: linear-gradient(135deg, #f8f9ff 0%, #f0e6ff 100%);
+            padding: 18px;
+            border-radius: 12px;
+            border-left: 4px solid #d946ef;
         }
         
         .info-item label {
             color: #667eea;
-            font-weight: bold;
+            font-weight: 700;
             display: block;
-            margin-bottom: 5px;
-            font-size: 0.9em;
+            margin-bottom: 8px;
+            font-size: 0.85em;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
         
         .info-item value {
-            font-size: 1.1em;
-            color: #333;
+            font-size: 1.05em;
+            color: #2d3436;
+            font-weight: 600;
         }
         
-        .schedules {
+        /* ==================== パターン一覧 ==================== */
+        .patterns-intro {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .patterns-intro h2 {
+            color: #667eea;
+            font-size: 1.25em;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+        
+        .patterns-intro p {
+            color: #636e72;
+            line-height: 1.6;
+            font-size: 0.95em;
+        }
+        
+        /* ==================== パターンカード（最重要） ==================== */
+        .patterns-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            grid-template-columns: 1fr;
             gap: 30px;
             margin-bottom: 40px;
         }
         
-        .schedule-card {
+        @media (min-width: 768px) {
+            .patterns-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .patterns-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        .pattern-card {
             background: white;
-            border-radius: 15px;
+            border-radius: 18px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
             animation: slideUp 0.6s ease-out backwards;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
         }
         
-        .schedule-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+        .pattern-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(102, 126, 234, 0.3);
         }
         
-        .schedule-card-header {
+        .pattern-card-header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 20px;
-            text-align: center;
-        }
-        
-        .schedule-card-header h3 {
-            font-size: 1.3em;
-            margin-bottom: 8px;
-        }
-        
-        .schedule-card-header p {
-            font-size: 0.95em;
-            opacity: 0.95;
-            line-height: 1.4;
-        }
-        
-        .schedule-card-content {
-            padding: 20px;
-        }
-        
-        .meal-section {
-            margin-bottom: 25px;
-            padding-bottom: 25px;
-            border-bottom: 1px solid #e0e0e0;
-        }
-        
-        .meal-section:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-        
-        .meal-title {
-            font-size: 1.1em;
-            font-weight: bold;
-            color: #764ba2;
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-        }
-        
-        .meal-title::before {
-            content: '';
-            display: inline-block;
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            margin-right: 8px;
-            background: #764ba2;
-        }
-        
-        .restaurant-card {
-            background: #f9f9f9;
-            border-radius: 10px;
-            overflow: hidden;
-            border: 1px solid #e0e0e0;
-        }
-        
-        .restaurant-image {
-            width: 100%;
-            height: 200px;
-            background: linear-gradient(135deg, #e0e0e0 0%, #f5f5f5 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.9em;
-            color: #999;
-            text-align: center;
-            padding: 10px;
+            padding: 24px;
             position: relative;
             overflow: hidden;
         }
         
-        .restaurant-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+        .pattern-card-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
         }
         
-        .restaurant-image.no-image {
-            background: linear-gradient(135deg, #e0e0e0 0%, #f5f5f5 100%);
-            color: #999;
+        .pattern-card-header h3 {
+            font-size: 1.25em;
+            font-weight: 700;
+            margin-bottom: 6px;
+            position: relative;
+            z-index: 1;
+            letter-spacing: 0.02em;
+        }
+        
+        .pattern-badge {
+            display: inline-block;
+            background: rgba(217, 70, 239, 0.3);
+            color: #fff;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.75em;
+            font-weight: 600;
+            margin-top: 8px;
+            position: relative;
+            z-index: 1;
+            backdrop-filter: blur(10px);
+        }
+        
+        .pattern-card-reason {
+            padding: 20px 24px;
+            background: #f8f9ff;
+            border-bottom: 2px solid #e9ecef;
+            font-size: 0.95em;
+            color: #636e72;
+            line-height: 1.6;
+            font-style: italic;
+        }
+        
+        /* ==================== セクション分割（スケジュール・昼食・夜食） ==================== */
+        .card-sections {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .card-section {
+            padding: 20px 24px;
+            flex: 1;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        
+        .card-section:last-child {
+            border-bottom: none;
+        }
+        
+        .card-section h4 {
+            color: #667eea;
+            font-size: 1em;
+            font-weight: 700;
+            margin-bottom: 14px;
             display: flex;
             align-items: center;
-            justify-content: center;
+            gap: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-size: 0.85em;
+        }
+        
+        .card-section.schedule h4::before {
+            content: '⏰';
+        }
+        
+        .card-section.lunch h4::before {
+            content: '🍽️';
+        }
+        
+        .card-section.dinner h4::before {
+            content: '🌙';
+        }
+        
+        /* ==================== スケジュール詳細 ==================== */
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .timeline-item {
+            display: flex;
+            gap: 12px;
+            padding: 10px;
+            background: white;
+            border-radius: 8px;
+            border-left: 3px solid #d946ef;
             font-size: 0.9em;
         }
         
+        .timeline-time {
+            font-weight: 700;
+            color: #667eea;
+            min-width: 70px;
+            flex-shrink: 0;
+        }
+        
+        .timeline-content {
+            color: #2d3436;
+            line-height: 1.4;
+        }
+        
+        /* ==================== 飲食店カード ==================== */
+        .restaurant-item {
+            background: #f9f9ff;
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            border: 1px solid #eae6ff;
+        }
+        
+        .restaurant-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
         .restaurant-info {
-            padding: 15px;
+            padding: 14px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
         }
         
         .restaurant-name {
-            font-size: 1.05em;
-            font-weight: bold;
-            color: #333;
+            font-weight: 700;
+            color: #2d3436;
+            font-size: 0.95em;
             margin-bottom: 8px;
+            line-height: 1.3;
         }
         
         .restaurant-details {
-            font-size: 0.85em;
-            color: #666;
-            margin-bottom: 8px;
-            line-height: 1.5;
-        }
-        
-        .restaurant-details-row {
-            margin-bottom: 6px;
+            font-size: 0.8em;
+            color: #636e72;
             display: flex;
-            flex-wrap: wrap;
+            flex-direction: column;
+            gap: 4px;
+            margin-bottom: 10px;
+            flex: 1;
         }
         
-        .restaurant-details-label {
-            font-weight: bold;
+        .restaurant-detail {
+            display: flex;
+            align-items: flex-start;
+            gap: 6px;
+        }
+        
+        .restaurant-detail label {
+            font-weight: 600;
             color: #667eea;
-            margin-right: 6px;
-            min-width: 50px;
+            min-width: 40px;
+            flex-shrink: 0;
         }
         
         .restaurant-links {
             display: flex;
             gap: 8px;
-            margin-top: 12px;
+            margin-top: auto;
         }
         
-        .btn {
-            display: inline-block;
-            padding: 8px 12px;
+        .restaurant-link {
+            flex: 1;
+            padding: 8px 10px;
             border-radius: 6px;
-            text-decoration: none;
-            font-size: 0.85em;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
             text-align: center;
+            font-size: 0.75em;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 1px solid #d946ef;
+            color: #d946ef;
+            cursor: pointer;
         }
         
-        .btn-maps {
-            background: #4285f4;
+        .restaurant-link:hover {
+            background: #d946ef;
             color: white;
-            flex: 1;
         }
         
-        .btn-maps:hover {
-            background: #3367d6;
-            box-shadow: 0 4px 12px rgba(66, 133, 244, 0.3);
+        .restaurant-link.maps {
+            border-color: #667eea;
+            color: #667eea;
         }
         
-        .btn-website {
-            background: #34a853;
-            color: white;
-            flex: 1;
-        }
-        
-        .btn-website:hover {
-            background: #2d8659;
-            box-shadow: 0 4px 12px rgba(52, 168, 83, 0.3);
-        }
-        
-        .reservation-badge {
-            display: inline-block;
-            padding: 3px 8px;
-            background: #ffa500;
-            color: white;
-            border-radius: 4px;
-            font-size: 0.8em;
-            font-weight: bold;
-            margin-left: 6px;
-        }
-        
-        .timeline {
-            background: #f5f5f5;
-            padding: 20px;
-            border-radius: 10px;
-            margin-top: 15px;
-        }
-        
-        .timeline-item {
-            margin-bottom: 15px;
-            display: flex;
-            gap: 12px;
-        }
-        
-        .timeline-item:last-child {
-            margin-bottom: 0;
-        }
-        
-        .timeline-time {
+        .restaurant-link.maps:hover {
             background: #667eea;
             color: white;
-            padding: 8px 12px;
-            border-radius: 6px;
-            font-size: 0.85em;
-            font-weight: bold;
-            min-width: 80px;
-            white-space: nowrap;
         }
         
-        .timeline-content {
-            flex: 1;
-        }
-        
-        .timeline-activity {
-            font-weight: bold;
-            color: #333;
-            font-size: 0.95em;
-            margin-bottom: 4px;
-        }
-        
-        .timeline-details {
-            color: #666;
-            font-size: 0.9em;
-            line-height: 1.4;
-        }
-        
+        /* ==================== アニメーション ==================== */
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -334,7 +400,7 @@
         @keyframes slideUp {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(40px);
             }
             to {
                 opacity: 1;
@@ -342,227 +408,258 @@
             }
         }
         
-        @media (max-width: 768px) {
+        .pattern-card:nth-child(1) { animation-delay: 0.1s; }
+        .pattern-card:nth-child(2) { animation-delay: 0.2s; }
+        .pattern-card:nth-child(3) { animation-delay: 0.3s; }
+        .pattern-card:nth-child(4) { animation-delay: 0.4s; }
+        .pattern-card:nth-child(5) { animation-delay: 0.5s; }
+        .pattern-card:nth-child(6) { animation-delay: 0.6s; }
+        .pattern-card:nth-child(7) { animation-delay: 0.7s; }
+        
+        /* ==================== フッター ==================== */
+        footer {
+            text-align: center;
+            color: white;
+            padding: 40px 20px;
+            margin-top: 60px;
+            opacity: 0.9;
+            font-size: 0.9em;
+        }
+        
+        /* ==================== 2カラム飲食店レイアウト ==================== */
+        .meal-section {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            width: 100%;
+        }
+        
+        /* ==================== レスポンシブ調整 ==================== */
+        @media (max-width: 640px) {
             header h1 {
-                font-size: 1.8em;
+                font-size: 1.6em;
             }
             
-            .schedules {
+            .info-grid {
                 grid-template-columns: 1fr;
-                gap: 20px;
+            }
+            
+            .pattern-card {
+                margin: 0;
+            }
+            
+            .card-section {
+                padding: 16px 20px;
+            }
+            
+            .meal-section {
+                grid-template-columns: 1fr;
+                gap: 12px;
             }
             
             .restaurant-image {
-                height: 150px;
+                height: 160px;
+            }
+        }
+        
+        @media (min-width: 641px) and (max-width: 1023px) {
+            .patterns-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
             
-            .timeline-item {
-                flex-direction: column;
-            }
-            
-            .timeline-time {
-                width: 100%;
+            .meal-section {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
+        <!-- ============== ヘッダー ============== -->
         <header>
-            <h1>🌸 3/29 東京花見デート</h1>
-            <p>7つのスポット × 実際の飲食店情報を組み込んだ、7パターンスケジュール提案</p>
+            <h1>🌸 3/29 東京花見デート完全ガイド 🌸</h1>
+            <p>7つのスケジュールパターン × 昼食・夜食レストランガイド</p>
+            <p class="subtitle">光斗×彼女のための完全プラン | ロマンティック・美食・体験に満ちた一日</p>
         </header>
         
+        <!-- ============== 基本情報 ============== -->
         <div class="info-box">
-            <h2>📋 デート基本情報</h2>
+            <h2>3月29日（土） 当日情報</h2>
             <div class="info-grid">
                 <div class="info-item">
-                    <label>出発地</label>
+                    <label>出発駅</label>
                     <value>明大前駅 / 我孫子駅</value>
                 </div>
                 <div class="info-item">
-                    <label>集合時間</label>
-                    <value>12:00 以降</value>
+                    <label>合流地点</label>
+                    <value>各パターンで異なります</value>
                 </div>
                 <div class="info-item">
-                    <label>帰宅時刻</label>
-                    <value>21:30（我孫子駅着）</value>
+                    <label>所要時間</label>
+                    <value>全パターン 11時～21時30分（約10.5時間）</value>
                 </div>
                 <div class="info-item">
-                    <label>予定時間</label>
-                    <value>9時間30分以内</value>
-                </div>
-                <div class="info-item">
-                    <label>アクティビティ</label>
-                    <value>花見 + 昼食 + 夕食 + ネットカフェ</value>
-                </div>
-                <div class="info-item">
-                    <label>開花状況</label>
-                    <value>3/29時点：五分咲き～満開</value>
+                    <label>予算目安</label>
+                    <value>昼食 + 夜食で 5,000～15,000円</value>
                 </div>
             </div>
         </div>
         
-        <div class="schedules" id="schedules"></div>
-        
-        <div class="info-box" style="text-align: center; margin-top: 40px;">
-            <h2>💡 スケジュール選択のポイント</h2>
-            <p style="line-height: 1.8; font-size: 1em;">
-                「品質」か「バランス」か「体験」か——二人の優先順位で選択してください。<br>
-                全パターン、花見と飲食をメインに、時間・予算・雰囲気を調整した構成です。<br>
-                実際の飲食店情報・Google Maps・公式サイトにもリンク済みなので、そのまま予約・ナビに使えます。
-            </p>
+        <!-- ============== パターン一覧 ============== -->
+        <div class="patterns-intro">
+            <h2>7つのパターンから選べる花見デート</h2>
+            <p>庭園巡り、ライトアップ、高級ディナー、ネットカフェまで。あなたたちの好みに合わせた完全プランが展開しています。</p>
         </div>
+        
+        <!-- ============== メインコンテンツ ============== -->
+        <div class="patterns-grid" id="patternsContainer">
+            <!-- JavaScriptで動的に生成 -->
+        </div>
+        
+        <!-- ============== フッター ============== -->
+        <footer>
+            <p>🌸 最高の花見デートになりますように 🌸</p>
+            <p style="margin-top: 12px; font-size: 0.85em;">Last updated: 2026-03-25 | Powered by OpenClaw AI Design</p>
+        </footer>
     </div>
     
+    <!-- ============== JavaScriptとデータロード ============== -->
     <script>
+        // スケジュールと飲食店のデータを非同期ロード
         async function loadData() {
             try {
-                const [spotsRes, schedulesRes, restaurantsRes] = await Promise.all([
-                    fetch('./data/spots.json'),
+                const [schedulesRes, restaurantsRes] = await Promise.all([
                     fetch('./data/schedules.json'),
                     fetch('./data/restaurants.json')
                 ]);
                 
-                const spots = await spotsRes.json();
-                const schedules = await schedulesRes.json();
-                const restaurants = await restaurantsRes.json();
+                const schedulesData = await schedulesRes.json();
+                const restaurantsData = await restaurantsRes.json();
                 
-                renderSchedules(schedules.schedules, restaurants.restaurants, spots.spots);
+                renderPatterns(schedulesData.schedules, restaurantsData.restaurants);
             } catch (error) {
-                console.error('データ読込エラー:', error);
-                document.getElementById('schedules').innerHTML = '<p>データ読込に失敗しました</p>';
+                console.error('データロードエラー:', error);
+                document.getElementById('patternsContainer').innerHTML = '<p>データが読み込めませんでした</p>';
             }
         }
         
-        function getRestaurantsBySpot(spotId, mealType, restaurants) {
-            return restaurants.filter(r => r.spotId === spotId && r.mealType === mealType);
-        }
-        
-        function renderRestaurantCard(restaurant) {
-            const imageHtml = restaurant.imageUrls && restaurant.imageUrls.length > 0
-                ? `<img src="${restaurant.imageUrls[0]}" alt="${restaurant.name}" onerror="this.parentElement.innerHTML='<div class=\"no-image\">写真を準備中...</div>'">`
-                : `<div class="no-image">写真を準備中...</div>`;
+        // パターンをレンダリング
+        function renderPatterns(schedules, restaurants) {
+            const container = document.getElementById('patternsContainer');
             
-            const reservationBadge = restaurant.reservation === '要予約'
-                ? `<span class="reservation-badge">要予約</span>`
-                : '';
-            
-            const websiteBtn = restaurant.websiteUrl
-                ? `<a href="${restaurant.websiteUrl}" target="_blank" class="btn btn-website">公式サイト</a>`
-                : '';
-            
-            return `
-                <div class="restaurant-card">
-                    <div class="restaurant-image">
-                        ${imageHtml}
-                    </div>
-                    <div class="restaurant-info">
-                        <div class="restaurant-name">
-                            ${restaurant.name}
-                            ${reservationBadge}
-                        </div>
-                        <div class="restaurant-details">
-                            <div class="restaurant-details-row">
-                                <span class="restaurant-details-label">営業時間:</span>
-                                <span>${restaurant.hours}</span>
-                            </div>
-                            <div class="restaurant-details-row">
-                                <span class="restaurant-details-label">予算:</span>
-                                <span>${restaurant.budget}</span>
-                            </div>
-                            <div class="restaurant-details-row">
-                                <span class="restaurant-details-label">所在地:</span>
-                                <span>${restaurant.address}</span>
-                            </div>
-                            <div class="restaurant-details-row">
-                                <span class="restaurant-details-label">電話:</span>
-                                <span>${restaurant.phone}</span>
-                            </div>
-                        </div>
-                        <div class="restaurant-links">
-                            <a href="${restaurant.mapsUrl}" target="_blank" class="btn btn-maps">Google Maps</a>
-                            ${websiteBtn}
-                        </div>
-                    </div>
-                </div>
-            `;
-        }
-        
-        function renderMealSection(mealType, mealLabel, spotId, restaurants) {
-            const mealRestaurants = getRestaurantsBySpot(spotId, mealType, restaurants);
-            
-            if (mealRestaurants.length === 0) {
-                return '';
-            }
-            
-            const restaurantHtml = mealRestaurants.map(renderRestaurantCard).join('');
-            
-            return `
-                <div class="meal-section">
-                    <div class="meal-title">${mealLabel}</div>
-                    ${restaurantHtml}
-                </div>
-            `;
-        }
-        
-        function renderTimeline(timeline) {
-            const timelineHtml = timeline.slice(0, 4).map(item => `
-                <div class="timeline-item">
-                    <div class="timeline-time">${item.time}</div>
-                    <div class="timeline-content">
-                        <div class="timeline-activity">${item.activity}</div>
-                        <div class="timeline-details">
-                            ${item.details || item.location}
-                        </div>
-                    </div>
-                </div>
-            `).join('');
-            
-            return `
-                <div class="timeline">
-                    ${timelineHtml}
-                </div>
-            `;
-        }
-        
-        function renderSchedules(schedules, restaurants, spots) {
-            const container = document.getElementById('schedules');
-            
-            container.innerHTML = schedules.map((schedule, index) => {
-                const spot = spots.find(s => s.id === schedule.spot.id);
-                const lunchHtml = renderMealSection('lunch', '🍽️ 昼食', schedule.spot.id, restaurants);
-                const dinnerHtml = renderMealSection('dinner', '🍷 夕食', schedule.spot.id, restaurants);
-                const timelineHtml = renderTimeline(schedule.timeline);
+            schedules.forEach((schedule, index) => {
+                const lunchRestaurants = restaurants.filter(r => r.spotId === schedule.spot.id && r.mealType === 'lunch');
+                const dinnerRestaurants = restaurants.filter(r => r.spotId === schedule.spot.id && r.mealType === 'dinner');
                 
-                return `
-                    <div class="schedule-card" style="animation-delay: ${index * 0.1}s">
-                        <div class="schedule-card-header">
-                            <h3>パターン ${index + 1}</h3>
-                            <p>${schedule.title}</p>
-                        </div>
-                        <div class="schedule-card-content">
-                            <div style="margin-bottom: 20px;">
-                                <strong>ポイント:</strong>
-                                <p style="font-size: 0.95em; color: #666; margin-top: 8px; line-height: 1.5;">
-                                    ${schedule.reason}
-                                </p>
+                const card = document.createElement('div');
+                card.className = 'pattern-card';
+                
+                // スケジュール簡略版
+                const mainTimeline = schedule.timeline.slice(0, 3);
+                
+                card.innerHTML = `
+                    <div class="pattern-card-header">
+                        <h3>パターン ${index + 1}</h3>
+                        <p style="font-weight: 600; margin: 6px 0; font-size: 0.95em; position: relative; z-index: 1;">${schedule.title}</p>
+                        <span class="pattern-badge">${schedule.spot.name}</span>
+                    </div>
+                    
+                    <div class="pattern-card-reason">
+                        "${schedule.reason}"
+                    </div>
+                    
+                    <div class="card-sections">
+                        <!-- スケジュール -->
+                        <div class="card-section schedule">
+                            <h4>スケジュール</h4>
+                            <div class="timeline">
+                                ${mainTimeline.map(item => `
+                                    <div class="timeline-item">
+                                        <div class="timeline-time">${item.time}</div>
+                                        <div class="timeline-content">
+                                            <strong>${item.activity}</strong>
+                                            <br>${item.location}
+                                        </div>
+                                    </div>
+                                `).join('')}
                             </div>
-                            
-                            ${lunchHtml}
-                            ${dinnerHtml}
-                            
-                            <div style="margin-top: 20px;">
-                                <strong>⏰ スケジュール概要</strong>
-                                ${timelineHtml}
+                        </div>
+                        
+                        <!-- 昼食 -->
+                        <div class="card-section lunch">
+                            <h4>昼食</h4>
+                            <div class="meal-section">
+                                ${lunchRestaurants.map(rest => `
+                                    <div class="restaurant-item">
+                                        <img src="${rest.imageUrls[0]}" alt="${rest.name}" class="restaurant-image" onerror="this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22180%22%3E%3Crect fill=%22%23667eea%22 width=%22200%22 height=%22180%22/%3E%3C/svg%3E'">
+                                        <div class="restaurant-info">
+                                            <div class="restaurant-name">${rest.name}</div>
+                                            <div class="restaurant-details">
+                                                <div class="restaurant-detail">
+                                                    <label>時間</label>
+                                                    <span>${rest.hours}</span>
+                                                </div>
+                                                <div class="restaurant-detail">
+                                                    <label>予算</label>
+                                                    <span>${rest.budget}</span>
+                                                </div>
+                                                <div class="restaurant-detail">
+                                                    <label>予約</label>
+                                                    <span>${rest.reservation}</span>
+                                                </div>
+                                            </div>
+                                            <div class="restaurant-links">
+                                                <a href="${rest.mapsUrl}" target="_blank" class="restaurant-link maps">地図</a>
+                                                ${rest.websiteUrl ? `<a href="${rest.websiteUrl}" target="_blank" class="restaurant-link">Web</a>` : ''}
+                                            </div>
+                                        </div>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                        
+                        <!-- 夜食 -->
+                        <div class="card-section dinner">
+                            <h4>夜食</h4>
+                            <div class="meal-section">
+                                ${dinnerRestaurants.map(rest => `
+                                    <div class="restaurant-item">
+                                        <img src="${rest.imageUrls[0]}" alt="${rest.name}" class="restaurant-image" onerror="this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22180%22%3E%3Crect fill=%22%23764ba2%22 width=%22200%22 height=%22180%22/%3E%3C/svg%3E'">
+                                        <div class="restaurant-info">
+                                            <div class="restaurant-name">${rest.name}</div>
+                                            <div class="restaurant-details">
+                                                <div class="restaurant-detail">
+                                                    <label>時間</label>
+                                                    <span>${rest.hours}</span>
+                                                </div>
+                                                <div class="restaurant-detail">
+                                                    <label>予算</label>
+                                                    <span>${rest.budget}</span>
+                                                </div>
+                                                <div class="restaurant-detail">
+                                                    <label>予約</label>
+                                                    <span>${rest.reservation}</span>
+                                                </div>
+                                            </div>
+                                            <div class="restaurant-links">
+                                                <a href="${rest.mapsUrl}" target="_blank" class="restaurant-link maps">地図</a>
+                                                ${rest.websiteUrl ? `<a href="${rest.websiteUrl}" target="_blank" class="restaurant-link">Web</a>` : ''}
+                                            </div>
+                                        </div>
+                                    </div>
+                                `).join('')}
                             </div>
                         </div>
                     </div>
                 `;
-            }).join('');
+                
+                container.appendChild(card);
+            });
         }
         
-        loadData();
+        // ページロード時にデータを読み込み
+        document.addEventListener('DOMContentLoaded', loadData);
     </script>
 </body>
 </html>
