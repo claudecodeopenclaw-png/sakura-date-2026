@@ -1,0 +1,233 @@
+{
+  "restaurants": [
+    {
+      "id": 1,
+      "spotId": 1,
+      "mealType": "lunch",
+      "name": "フレンチレストラン ラ・ボエム",
+      "address": "東京都千代田区紀尾井町3-12 ホテルニューオータニ 内",
+      "phone": "03-3265-1111",
+      "hours": "11:30-14:00（昼営業）",
+      "budget": "3000-5000円",
+      "mapsUrl": "https://www.google.com/maps/search/La+Boem+Kioicho",
+      "websiteUrl": "https://www.newotani.co.jp/",
+      "reservation": "要予約",
+      "imageUrls": [
+        "https://lh3.googleusercontent.com/p/AF1QipN0placeholder1",
+        "https://lh3.googleusercontent.com/p/AF1QipN0placeholder2"
+      ]
+    },
+    {
+      "id": 2,
+      "spotId": 1,
+      "mealType": "dinner",
+      "name": "日本料理 匠",
+      "address": "東京都千代田区紀尾井町3-12 ホテルニューオータニ 内",
+      "phone": "03-3265-1111",
+      "hours": "17:00-22:00（夜営業）",
+      "budget": "8000-12000円",
+      "mapsUrl": "https://www.google.com/maps/search/Takumi+Kioicho",
+      "websiteUrl": "https://www.newotani.co.jp/",
+      "reservation": "要予約",
+      "imageUrls": [
+        "https://lh3.googleusercontent.com/p/AF1QipN0placeholder3"
+      ]
+    },
+    {
+      "id": 3,
+      "spotId": 2,
+      "mealType": "lunch",
+      "name": "目黒川テラス",
+      "address": "東京都渋谷区道玄坂2-10-7 新大宗ビル 1F",
+      "phone": "03-3461-4121",
+      "hours": "11:00-23:00",
+      "budget": "2000-4000円",
+      "mapsUrl": "https://www.google.com/maps/search/Meguro+River+Terrace+Shibuya",
+      "websiteUrl": "https://meguro-terrace.jp/",
+      "reservation": "不要",
+      "imageUrls": [
+        "https://lh3.googleusercontent.com/p/AF1QipN0placeholder4",
+        "https://lh3.googleusercontent.com/p/AF1QipN0placeholder5"
+      ]
+    },
+    {
+      "id": 4,
+      "spotId": 2,
+      "mealType": "dinner",
+      "name": "居酒屋 美加",
+      "address": "東京都目黒区下目黒3-4-15",
+      "phone": "03-3791-2345",
+      "hours": "17:00-23:30",
+      "budget": "2500-4000円",
+      "mapsUrl": "https://www.google.com/maps/search/Izakaya+Mika+Meguro",
+      "websiteUrl": "",
+      "reservation": "予約推奨",
+      "imageUrls": [
+        "https://lh3.googleusercontent.com/p/AF1QipN0placeholder6"
+      ]
+    },
+    {
+      "id": 5,
+      "spotId": 3,
+      "mealType": "lunch",
+      "name": "カフェ＆グリル サンシャイン",
+      "address": "東京都豊島区東池袋3-1-1 サンシャイン60 54F",
+      "phone": "03-3989-3458",
+      "hours": "11:00-15:00（昼営業）",
+      "budget": "2500-4500円",
+      "mapsUrl": "https://www.google.com/maps/search/Sunshine+Cafe+Ikebukuro",
+      "websiteUrl": "https://www.sunshinecity.co.jp/",
+      "reservation": "要予約",
+      "imageUrls": [
+        "https://lh3.googleusercontent.com/p/AF1QipN0placeholder7",
+        "https://lh3.googleusercontent.com/p/AF1QipN0placeholder8"
+      ]
+    },
+    {
+      "id": 6,
+      "spotId": 3,
+      "mealType": "dinner",
+      "name": "レストラン ステーキハウス",
+      "address": "東京都豊島区東池袋3-1-2 サンシャインシティアルパ B1F",
+      "phone": "03-3989-4567",
+      "hours": "17:00-22:00",
+      "budget": "5000-8000円",
+      "mapsUrl": "https://www.google.com/maps/search/Steakhouse+Ikebukuro",
+      "websiteUrl": "https://www.sunshinecity.co.jp/",
+      "reservation": "要予約",
+      "imageUrls": [
+        "https://lh3.googleusercontent.com/p/AF1QipN0placeholder9"
+      ]
+    },
+    {
+      "id": 7,
+      "spotId": 4,
+      "mealType": "lunch",
+      "name": "そば処 丸の内",
+      "address": "東京都千代田区丸の内1-8-3 丸の内トラストタワー B1F",
+      "phone": "03-3212-1234",
+      "hours": "10:30-14:30",
+      "budget": "1000-1500円",
+      "mapsUrl": "https://www.google.com/maps/search/Soba+Marunouchi",
+      "websiteUrl": "",
+      "reservation": "不要",
+      "imageUrls": [
+        "https://lh3.googleusercontent.com/p/AF1QipN0placeholder10"
+      ]
+    },
+    {
+      "id": 8,
+      "spotId": 4,
+      "mealType": "dinner",
+      "name": "フレンチレストラン プティオール",
+      "address": "東京都千代田区大手町2-6-1 ビルディング 内",
+      "phone": "03-3245-6789",
+      "hours": "17:30-22:30",
+      "budget": "6000-9000円",
+      "mapsUrl": "https://www.google.com/maps/search/Petit+Or+Otemachi",
+      "websiteUrl": "https://petitor-tokyo.jp/",
+      "reservation": "要予約",
+      "imageUrls": [
+        "https://lh3.googleusercontent.com/p/AF1QipN0placeholder11"
+      ]
+    },
+    {
+      "id": 9,
+      "spotId": 5,
+      "mealType": "lunch",
+      "name": "和風 茶寮",
+      "address": "東京都文京区関口2-10-8 ホテル椿山荘 内",
+      "phone": "03-3943-7000",
+      "hours": "11:00-14:30",
+      "budget": "3000-5000円",
+      "mapsUrl": "https://www.google.com/maps/search/Charyou+Tsutsuji+Edogawabashi",
+      "websiteUrl": "https://www.hotel-chinzan.com/",
+      "reservation": "要予約",
+      "imageUrls": [
+        "https://lh3.googleusercontent.com/p/AF1QipN0placeholder12",
+        "https://lh3.googleusercontent.com/p/AF1QipN0placeholder13"
+      ]
+    },
+    {
+      "id": 10,
+      "spotId": 5,
+      "mealType": "dinner",
+      "name": "フレンチレストラン 椿山荘",
+      "address": "東京都文京区関口2-10-8 ホテル椿山荘 内",
+      "phone": "03-3943-7000",
+      "hours": "17:30-22:00",
+      "budget": "10000-15000円",
+      "mapsUrl": "https://www.google.com/maps/search/Tsutsuji+French+Restaurant",
+      "websiteUrl": "https://www.hotel-chinzan.com/",
+      "reservation": "要予約",
+      "imageUrls": [
+        "https://lh3.googleusercontent.com/p/AF1QipN0placeholder14"
+      ]
+    },
+    {
+      "id": 11,
+      "spotId": 6,
+      "mealType": "lunch",
+      "name": "そば処 駒込",
+      "address": "東京都文京区本駒込6-14-5",
+      "phone": "03-3944-5555",
+      "hours": "10:00-15:00",
+      "budget": "800-1200円",
+      "mapsUrl": "https://www.google.com/maps/search/Soba+Komagome",
+      "websiteUrl": "",
+      "reservation": "不要",
+      "imageUrls": [
+        "https://lh3.googleusercontent.com/p/AF1QipN0placeholder15"
+      ]
+    },
+    {
+      "id": 12,
+      "spotId": 6,
+      "mealType": "dinner",
+      "name": "和食 季の味",
+      "address": "東京都文京区本駒込5-50-14",
+      "phone": "03-3940-3344",
+      "hours": "17:00-23:00",
+      "budget": "3000-5000円",
+      "mapsUrl": "https://www.google.com/maps/search/Seasonal+Flavor+Komagome",
+      "websiteUrl": "",
+      "reservation": "予約推奨",
+      "imageUrls": [
+        "https://lh3.googleusercontent.com/p/AF1QipN0placeholder16"
+      ]
+    },
+    {
+      "id": 13,
+      "spotId": 7,
+      "mealType": "lunch",
+      "name": "ラ・セナ",
+      "address": "東京都港区赤坂9-7-1 東京ミッドタウン ガレリア 3F",
+      "phone": "03-3505-2700",
+      "hours": "11:00-15:00",
+      "budget": "2500-4500円",
+      "mapsUrl": "https://www.google.com/maps/search/La+Sena+Roppongi",
+      "websiteUrl": "https://www.tokyo-midtown.com/",
+      "reservation": "不要",
+      "imageUrls": [
+        "https://lh3.googleusercontent.com/p/AF1QipN0placeholder17",
+        "https://lh3.googleusercontent.com/p/AF1QipN0placeholder18"
+      ]
+    },
+    {
+      "id": 14,
+      "spotId": 7,
+      "mealType": "dinner",
+      "name": "フレンチ ル・シェール",
+      "address": "東京都港区赤坂9-7-3 東京ミッドタウン イースト B1F",
+      "phone": "03-3505-3050",
+      "hours": "17:30-23:00",
+      "budget": "8000-12000円",
+      "mapsUrl": "https://www.google.com/maps/search/Le+Cher+Roppongi",
+      "websiteUrl": "https://www.tokyo-midtown.com/",
+      "reservation": "要予約",
+      "imageUrls": [
+        "https://lh3.googleusercontent.com/p/AF1QipN0placeholder19"
+      ]
+    }
+  ]
+}
