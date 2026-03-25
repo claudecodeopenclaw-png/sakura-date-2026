@@ -299,19 +299,28 @@
         /* ==================== 飲食店カード ==================== */
         .restaurant-item {
             background: #f9f9ff;
-            border-radius: 12px;
-            overflow: hidden;
+            border-radius: 14px;
+            overflow: visible;
             display: flex;
             flex-direction: column;
             height: 100%;
             border: 1px solid #eae6ff;
+            transition: transform 0.2s ease;
+        }
+
+        .restaurant-item:hover {
+            transform: translateY(-3px);
         }
         
         .restaurant-image {
             width: 100%;
-            height: 180px;
+            height: 140px;
             object-fit: cover;
+            border-radius: 10px;
+            margin: 12px 12px 0 12px;
+            width: calc(100% - 24px);
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
         
         .restaurant-info {
