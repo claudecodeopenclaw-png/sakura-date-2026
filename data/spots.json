@@ -1,0 +1,154 @@
+{
+  "spots": [
+    {
+      "id": 1,
+      "name": "ホテルニューオータニ",
+      "location": "紀尾井町",
+      "area": "千代田区",
+      "coords": { "lat": 35.6753, "lng": 139.7402 },
+      "period": "2/27-4/26",
+      "expectedBloom": "3/29時点：五分咲き～満開",
+      "features": ["高級ホテル庭園", "レジャーシート可", "ライトアップ夜間撮影可"],
+      "admission": "1,000-1,500円程度（昼間）",
+      "hours": "9:00-22:00（季節により変動）",
+      "trafficFrom": {
+        "meijodai": 12,
+        "abiko": 38
+      },
+      "restaurants": {
+        "lunch": ["ラ・ボエム", "季彩"],
+        "dinner": ["日本料理 匠"]
+      }
+    },
+    {
+      "id": 2,
+      "name": "日中川",
+      "location": "日黒",
+      "area": "渋谷区・目黒区境",
+      "coords": { "lat": 35.6423, "lng": 139.7087 },
+      "period": "3月下旬-4月上旬",
+      "expectedBloom": "3/29時点：見頃（七分咲き）",
+      "features": ["川沿い散策", "レジャーシート可", "夜桜"],
+      "admission": "無料",
+      "hours": "24時間",
+      "trafficFrom": {
+        "meijodai": 15,
+        "abiko": 45
+      },
+      "restaurants": {
+        "lunch": ["目黒川沿い飲食店街"],
+        "dinner": ["居酒屋多数"]
+      }
+    },
+    {
+      "id": 3,
+      "name": "サンシャイン60展望台",
+      "location": "池袋",
+      "area": "豊島区",
+      "coords": { "lat": 35.7295, "lng": 139.7108 },
+      "period": "2/26-5/10",
+      "expectedBloom": "3/29時点：見頃（八分咲き）",
+      "features": ["高層展望台から東京を一望", "夜景撮影最高", "屋内で雨でも楽しめる"],
+      "admission": "1,200円",
+      "hours": "10:00-22:00",
+      "trafficFrom": {
+        "meijodai": 5,
+        "abiko": 35
+      },
+      "restaurants": {
+        "lunch": ["大池公園周辺"],
+        "dinner": ["池袋駅周辺"]
+      }
+    },
+    {
+      "id": 4,
+      "name": "千島・間",
+      "location": "千代田区",
+      "area": "千代田区",
+      "coords": { "lat": 35.6888, "lng": 139.7513 },
+      "period": "3月下旬-4月上旬",
+      "expectedBloom": "3/29時点：見頃（八分咲き）",
+      "features": ["江戸情緒残る散策路", "レジャーシート可", "夜桜撮影向け"],
+      "admission": "無料",
+      "hours": "24時間",
+      "trafficFrom": {
+        "meijodai": 8,
+        "abiko": 35
+      },
+      "restaurants": {
+        "lunch": ["丸の内周辺"],
+        "dinner": ["大手町周辺"]
+      }
+    },
+    {
+      "id": 5,
+      "name": "ホテル椿山荘",
+      "location": "江戸川橋",
+      "area": "文京区",
+      "coords": { "lat": 35.7089, "lng": 139.7403 },
+      "period": "2/26-4/12",
+      "expectedBloom": "3/29時点：見頃（八分咲き～満開）",
+      "features": ["高級ホテル庭園", "レジャーシート可", "ライトアップ約1時間可"],
+      "admission": "1,000円程度",
+      "hours": "9:00-22:00",
+      "trafficFrom": {
+        "meijodai": 10,
+        "abiko": 36
+      },
+      "restaurants": {
+        "lunch": ["茶寮"],
+        "dinner": ["フレンチレストラン"]
+      }
+    },
+    {
+      "id": 6,
+      "name": "六義園",
+      "location": "駒込",
+      "area": "文京区",
+      "coords": { "lat": 35.7274, "lng": 139.7598 },
+      "period": "3月中旬-3月下旬",
+      "expectedBloom": "3/29時点：散り始め～まだ見られる",
+      "features": ["江戸庭園", "レジャーシート可", "日本画的景観"],
+      "admission": "300円",
+      "hours": "9:00-17:00",
+      "trafficFrom": {
+        "meijodai": 12,
+        "abiko": 38
+      },
+      "restaurants": {
+        "lunch": ["駒込駅周辺"],
+        "dinner": ["駒込駅周辺"]
+      }
+    },
+    {
+      "id": 7,
+      "name": "東京ミッドタウン",
+      "location": "六本木",
+      "area": "港区",
+      "coords": { "lat": 35.6769, "lng": 139.7295 },
+      "period": "3/13-4/12",
+      "expectedBloom": "3/29時点：見頃（七分咲き～満開）",
+      "features": ["現代的庭園", "レストランが充実", "ショッピングエリア隣接"],
+      "admission": "無料",
+      "hours": "11:00-23:00",
+      "trafficFrom": {
+        "meijodai": 25,
+        "abiko": 42
+      },
+      "restaurants": {
+        "lunch": ["ミッドタウン内多数"],
+        "dinner": ["ミッドタウン内フレンチ・日本料理"]
+      }
+    }
+  ],
+  "startPoints": {
+    "meijodai": { "name": "明大前駅", "lat": 35.6561, "lng": 139.6750 },
+    "abiko": { "name": "我孫子駅", "lat": 35.8659, "lng": 140.0971 }
+  },
+  "constraints": {
+    "meetTime": "12:00 以降",
+    "returnTime": "21:30（我孫子駅着）",
+    "duration": "9時間30分以内",
+    "activities": ["花見", "昼食", "夕食", "ネットカフェ 1-2時間"]
+  }
+}

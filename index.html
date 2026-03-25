@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3/29 東京花見デート | 7パターンスケジュール提案</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Kaku Gothic ProN', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+            animation: fadeIn 0.6s ease-in;
+        }
+        
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        header p {
+            font-size: 1.1em;
+            opacity: 0.95;
+        }
+        
+        .info-box {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .info-box h2 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .info-item {
+            background: #f8f9ff;
+            padding: 12px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .info-item label {
+            color: #667eea;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .info-item value {
+            font-size: 1.1em;
+            color: #333;
+        }
+        
+        .schedules {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .schedule-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: slideUp 0.6s ease-out backwards;
+        }
+        
+        .schedule-card:nth-child(1) { animation-delay: 0.1s; }
+        .schedule-card:nth-child(2) { animation-delay: 0.2s; }
+        .schedule-card:nth-child(3) { animation-delay: 0.3s; }
+        .schedule-card:nth-child(4) { animation-delay: 0.4s; }
+        .schedule-card:nth-child(5) { animation-delay: 0.5s; }
+        .schedule-card:nth-child(6) { animation-delay: 0.6s; }
+        .schedule-card:nth-child(7) { animation-delay: 0.7s; }
+        
+        .schedule-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+        }
+        
+        .schedule-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+        }
+        
+        .schedule-header .pattern {
+            font-size: 0.9em;
+            opacity: 0.9;
+            margin-bottom: 5px;
+        }
+        
+        .schedule-header h3 {
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+        
+        .schedule-header .spot {
+            font-size: 1.1em;
+            background: rgba(255,255,255,0.2);
+            padding: 8px 12px;
+            border-radius: 5px;
+            display: inline-block;
+        }
+        
+        .schedule-body {
+            padding: 20px;
+        }
+        
+        .reason {
+            background: #f0f4ff;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            font-size: 0.95em;
+            color: #555;
+            line-height: 1.5;
+        }
+        
+        .detail-section {
+            margin-bottom: 15px;
+        }
+        
+        .detail-label {
+            color: #667eea;
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .detail-label::before {
+            content: "🍒";
+        }
+        
+        .detail-value {
+            font-size: 0.95em;
+            color: #666;
+            margin-left: 20px;
+        }
+        
+        .cost {
+            background: #fff5e1;
+            padding: 10px;
+            border-radius: 8px;
+            margin-top: 15px;
+            font-weight: bold;
+            color: #d97706;
+        }
+        
+        .pros-cons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 15px;
+            font-size: 0.9em;
+        }
+        
+        .pros, .cons {
+            padding: 10px;
+            border-radius: 8px;
+        }
+        
+        .pros {
+            background: #dcfce7;
+            color: #166534;
+        }
+        
+        .cons {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+        
+        .pros h4, .cons h4 {
+            margin-bottom: 5px;
+            font-size: 0.9em;
+        }
+        
+        .pros ul, .cons ul {
+            margin-left: 15px;
+            line-height: 1.4;
+        }
+        
+        .timeline-section {
+            margin-top: 20px;
+            background: #f8f9ff;
+            padding: 15px;
+            border-radius: 8px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        
+        .timeline-item {
+            margin-bottom: 10px;
+            padding: 8px;
+            border-left: 3px solid #667eea;
+            padding-left: 12px;
+            font-size: 0.85em;
+        }
+        
+        .timeline-time {
+            color: #667eea;
+            font-weight: bold;
+        }
+        
+        .timeline-activity {
+            color: #333;
+            margin-left: 5px;
+        }
+        
+        .toggle-timeline {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.85em;
+            margin-top: 10px;
+        }
+        
+        .toggle-timeline:hover {
+            background: #764ba2;
+        }
+        
+        .weather-section {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        
+        .weather-section h2 {
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+        
+        .weather-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        
+        .weather-item {
+            background: linear-gradient(135deg, #ffd89b 0%, #19547b 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .weather-item h3 {
+            margin-bottom: 8px;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        footer {
+            text-align: center;
+            color: white;
+            padding: 20px;
+            margin-top: 40px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+            
+            .schedules {
+                grid-template-columns: 1fr;
+            }
+            
+            .pros-cons {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🌸 3/29 東京花見デート 🌸</h1>
+            <p>7パターンのスケジュール提案 | 光斗 × 彼女</p>
+        </header>
+        
+        <div class="info-box">
+            <h2>📋 基本情報</h2>
+            <div class="info-grid">
+                <div class="info-item">
+                    <label>日程</label>
+                    <value>3月29日（金）</value>
+                </div>
+                <div class="info-item">
+                    <label>参加者</label>
+                    <value>光斗（明大前発）/ 彼女（我孫子発）</value>
+                </div>
+                <div class="info-item">
+                    <label>集合時間</label>
+                    <value>12:00 以降</value>
+                </div>
+                <div class="info-item">
+                    <label>帰路終了</label>
+                    <value>21:30 我孫子駅着</value>
+                </div>
+                <div class="info-item">
+                    <label>総活動時間</label>
+                    <value>最大 9時間30分</value>
+                </div>
+                <div class="info-item">
+                    <label>予算</label>
+                    <value>制限なし</value>
+                </div>
+            </div>
+        </div>
+        
+        <div class="weather-section">
+            <h2>🌤️ 天気・開花情報（3/29予測）</h2>
+            <div class="weather-info">
+                <div class="weather-item">
+                    <h3>気温</h3>
+                    <p>15-20℃</p>
+                    <p>☀️ 晴れ予報</p>
+                </div>
+                <div class="weather-item">
+                    <h3>桜の見頃</h3>
+                    <p>ほぼ満開</p>
+                    <p>最高のタイミング</p>
+                </div>
+                <div class="weather-item">
+                    <h3>風</h3>
+                    <p>弱い～微風</p>
+                    <p>散策に最適</p>
+                </div>
+                <div class="weather-item">
+                    <h3>降水確率</h3>
+                    <p>10-15%</p>
+                    <p>傘不要</p>
+                </div>
+            </div>
+            <p style="margin-top: 15px; font-size: 0.9em; color: #666;">
+                ※ 予測は 3/25 時点のデータ。最新情報は日本気象協会等でご確認ください。
+            </p>
+        </div>
+        
+        <h2 style="color: white; margin-bottom: 25px; font-size: 1.8em;">📅 7パターンのスケジュール提案</h2>
+        
+        <div class="schedules" id="schedules"></div>
+        
+        <footer>
+            <p>🌸 花見デート完全ガイド 2026 | Designed by トニー・スターク ⚙️</p>
+            <p style="font-size: 0.9em; margin-top: 10px;">最適なパターンを選んで、素敵なデートを！</p>
+        </footer>
+    </div>
+    
+    <script>
+        const schedules = [
+            {
+                pattern: 1,
+                title: "高級庭園でゆったり花見＆ラグジュアリーディナー",
+                spot: "ホテルニューオータニ 紀尾井町",
+                reason: "品質を重視するなら、高級ホテル庭園で落ち着いた時間。ライトアップ対応で夕方も美しい。",
+                cost: "8,500-10,500円",
+                pros: ["高級感", "施設充実", "ライトアップ対応", "二人だけの時間確保"],
+                cons: ["入場料あり", "移動時間が少し長い"],
+                timeline: [
+                    { time: "11:30-12:00", activity: "紀尾井町で合流" },
+                    { time: "12:00-15:00", activity: "花見＆昼食（180分）" },
+                    { time: "15:00-17:00", activity: "散歩・カフェ" },
+                    { time: "17:00-17:45", activity: "夕食" },
+                    { time: "17:45-19:30", activity: "ネットカフェ（105分）" },
+                    { time: "19:30-20:00", activity: "夜桜鑑賞" },
+                    { time: "20:00-21:30", activity: "帰路" }
+                ]
+            },
+            {
+                pattern: 2,
+                title: "目黒川の桜並木で自然派花見＆夜桜撮影",
+                spot: "日中川 / 日黒",
+                reason: "東京を代表する桜並木。無料でレジャーシート可。夜桜撮影も最高。",
+                cost: "5,500-7,500円",
+                pros: ["無料で楽しめる", "桜が濃い", "ピクニック気分", "ライトアップ対応"],
+                cons: ["混雑が予想される", "天候に左右される（屋根なし）"],
+                timeline: [
+                    { time: "11:45-12:15", activity: "中目黒駅で合流" },
+                    { time: "12:15-15:30", activity: "花見＆昼食（195分）" },
+                    { time: "15:30-17:00", activity: "散歩・写真撮影" },
+                    { time: "17:00-17:45", activity: "夕食" },
+                    { time: "17:45-19:30", activity: "ネットカフェ（105分）" },
+                    { time: "19:30-20:15", activity: "夜桜ライトアップ鑑賞" },
+                    { time: "20:15-21:30", activity: "帰路（約75分）" }
+                ]
+            },
+            {
+                pattern: 3,
+                title: "高層展望台で東京を一望＋夜景デート",
+                spot: "サンシャイン60展望台 / 池袋",
+                reason: "天気が良ければ東京全体の花見が見られる。室内で天候問わず楽しめる。",
+                cost: "7,000-9,000円",
+                pros: ["天候に強い（屋内）", "夜景が最高", "ショッピング併用可", "時間が有効活用"],
+                cons: ["展望台料金", "実物の桜が物足りない可能性"],
+                timeline: [
+                    { time: "11:50-12:15", activity: "池袋駅で合流" },
+                    { time: "12:15-14:00", activity: "展望台＆昼食（105分）" },
+                    { time: "14:00-15:30", activity: "池袋散策 / ショッピング" },
+                    { time: "15:30-17:00", activity: "散歩＆カフェ" },
+                    { time: "17:00-17:45", activity: "夕食" },
+                    { time: "17:45-19:30", activity: "ネットカフェ（105分）" },
+                    { time: "19:30-20:45", activity: "夜景鑑賞 or 帰路準備" }
+                ]
+            },
+            {
+                pattern: 4,
+                title: "江戸情緒と現代の融合＆撮影スポット満載",
+                spot: "千島・間 / 千代田区",
+                reason: "江戸の雰囲気を残しながら、近現代的な東京も感じられる。撮影スポット豊富。",
+                cost: "6,000-8,000円",
+                pros: ["無料で楽しめる", "撮影スポット最高", "歴史と現代の融合が素敵", "ライトアップ対応"],
+                cons: ["混雑が予想される", "移動距離がやや長い"],
+                timeline: [
+                    { time: "11:50-12:15", activity: "竹橋駅で合流" },
+                    { time: "12:15-15:15", activity: "花見＆昼食（180分）" },
+                    { time: "15:15-17:00", activity: "散歩・写真撮影" },
+                    { time: "17:00-17:45", activity: "夕食" },
+                    { time: "17:45-19:30", activity: "ネットカフェ（105分）" },
+                    { time: "19:30-20:15", activity: "夜桜ライトアップ鑑賞" },
+                    { time: "20:15-21:30", activity: "帰路（約1時間）" }
+                ]
+            },
+            {
+                pattern: 5,
+                title: "高級庭園の夜桜＆フレンチで大人っぽく",
+                spot: "ホテル椿山荘 / 江戸川橋",
+                reason: "満開に近い予測。ライトアップで日中と違う顔。フレンチで高級感を演出できる。",
+                cost: "10,500-12,000円",
+                pros: ["ライトアップが最高", "高級感", "フレンチで特別感", "天候に強い"],
+                cons: ["料金が高い", "ネットカフェ時間が取れない", "予約が必要な可能性"],
+                timeline: [
+                    { time: "11:45-12:15", activity: "江戸川橋駅で合流" },
+                    { time: "12:15-14:30", activity: "花見＆昼食（135分）" },
+                    { time: "14:30-16:00", activity: "散歩＆カフェ" },
+                    { time: "16:00-17:30", activity: "リラックス&休憩" },
+                    { time: "17:30-18:45", activity: "フレンチディナー" },
+                    { time: "18:45-19:30", activity: "ライトアップ鑑賞" },
+                    { time: "19:30-21:30", activity: "帰路（約1時間10分）" }
+                ]
+            },
+            {
+                pattern: 6,
+                title: "江戸庭園の正統派花見＆昼間重視タイプ",
+                spot: "六義園 / 駒込",
+                reason: "江戸庭園の最高峰。散り始めだが、まだ十分に楽しめる。昼間メインで落ち着きたいカップル向け。",
+                cost: "5,500-7,000円",
+                pros: ["入園料が安い", "江戸庭園の最高峰", "落ち着いた雰囲気", "和文化を楽しめる"],
+                cons: ["散り始めで桜は若干薄い", "ライトアップ見られない（17時閉園）"],
+                timeline: [
+                    { time: "11:45-12:15", activity: "駒込駅で合流" },
+                    { time: "12:15-14:00", activity: "花見＆昼食（105分）" },
+                    { time: "14:00-15:30", activity: "庭園散策" },
+                    { time: "15:30-16:30", activity: "カフェ&休憩" },
+                    { time: "16:30-17:30", activity: "駒込商店街散歩" },
+                    { time: "17:30-18:15", activity: "夕食" },
+                    { time: "18:15-19:45", activity: "ネットカフェ（90分）" },
+                    { time: "19:45-21:30", activity: "帰路（約1時間25分）" }
+                ]
+            },
+            {
+                pattern: 7,
+                title: "現代的六本木で洗練された花見＆ショッピング",
+                spot: "東京ミッドタウン / 六本木",
+                reason: "最新のショッピング施設と調和した桜。ミシュラン店舗など高級飲食も多い。都会的なカップル向け。",
+                cost: "8,000-11,000円",
+                pros: ["無料で花見できる", "ショッピング充実", "高級飲食店が多い", "現代的で洗練"],
+                cons: ["移動時間がやや長い", "帰路時間がギリギリ", "混雑が激しい可能性"],
+                timeline: [
+                    { time: "11:50-12:30", activity: "六本木駅で合流" },
+                    { time: "12:30-14:00", activity: "花見＆昼食（90分）" },
+                    { time: "14:00-16:30", activity: "ショッピング＆散歩" },
+                    { time: "16:30-17:30", activity: "カフェ＆休憩" },
+                    { time: "17:30-18:45", activity: "高級フレンチ / 日本料理" },
+                    { time: "18:45-20:15", activity: "ネットカフェ（90分）" },
+                    { time: "20:15-20:45", activity: "夜の散歩" },
+                    { time: "20:45-21:30", activity: "帰路（約1時間）" }
+                ]
+            }
+        ];
+        
+        const container = document.getElementById('schedules');
+        
+        schedules.forEach(schedule => {
+            const card = document.createElement('div');
+            card.className = 'schedule-card';
+            card.innerHTML = `
+                <div class="schedule-header">
+                    <div class="pattern">パターン ${schedule.pattern}</div>
+                    <h3>${schedule.title}</h3>
+                    <div class="spot">📍 ${schedule.spot}</div>
+                </div>
+                <div class="schedule-body">
+                    <div class="reason">💡 ${schedule.reason}</div>
+                    
+                    <div class="detail-section">
+                        <div class="detail-label">予算</div>
+                        <div class="detail-value">${schedule.cost}</div>
+                    </div>
+                    
+                    <div class="pros-cons">
+                        <div class="pros">
+                            <h4>✅ 良い点</h4>
+                            <ul>
+                                ${schedule.pros.map(p => `<li>${p}</li>`).join('')}
+                            </ul>
+                        </div>
+                        <div class="cons">
+                            <h4>⚠️ 注意点</h4>
+                            <ul>
+                                ${schedule.cons.map(c => `<li>${c}</li>`).join('')}
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-section">
+                        <div style="font-weight: bold; margin-bottom: 10px; color: #667eea;">⏰ 当日スケジュール</div>
+                        ${schedule.timeline.map(item => `
+                            <div class="timeline-item">
+                                <span class="timeline-time">${item.time}</span>
+                                <span class="timeline-activity">→ ${item.activity}</span>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+            container.appendChild(card);
+        });
+    </script>
+</body>
+</html>
