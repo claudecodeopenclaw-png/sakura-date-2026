@@ -98,6 +98,36 @@
             animation: slideUp 0.6s ease-out backwards;
         }
         
+        .schedule-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .restaurant-images {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .restaurant-image {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        
+        .restaurant-label {
+            font-size: 0.85em;
+            color: #667eea;
+            font-weight: bold;
+            margin-top: 8px;
+            text-align: center;
+        }
+        
         .schedule-card:nth-child(1) { animation-delay: 0.1s; }
         .schedule-card:nth-child(2) { animation-delay: 0.2s; }
         .schedule-card:nth-child(3) { animation-delay: 0.3s; }
@@ -546,7 +576,20 @@
         schedules.forEach(schedule => {
             const card = document.createElement('div');
             card.className = 'schedule-card';
+            
+            // Get spot name for image path
+            const spotName = [
+                "ホテルニューオータニ",
+                "日中川",
+                "サンシャイン60展望台",
+                "千島_間",
+                "ホテル椿山荘",
+                "六義園",
+                "東京ミッドタウン"
+            ][schedule.pattern - 1];
+            
             card.innerHTML = `
+                <img src="images/spots/${spotName}_spot.webp" alt="${spotName}" class="schedule-image" onerror="this.style.display='none'">
                 <div class="schedule-header">
                     <div class="pattern">パターン ${schedule.pattern}</div>
                     <h3>${schedule.title}</h3>
@@ -554,6 +597,17 @@
                 </div>
                 <div class="schedule-body">
                     <div class="reason">💡 ${schedule.reason}</div>
+                    
+                    <div class="restaurant-images">
+                        <div>
+                            <img src="images/restaurants/${spotName}_lunch.webp" alt="昼食" class="restaurant-image" onerror="this.style.display='none'">
+                            <div class="restaurant-label">🍽️ 昼食</div>
+                        </div>
+                        <div>
+                            <img src="images/restaurants/${spotName}_dinner.webp" alt="夜食" class="restaurant-image" onerror="this.style.display='none'">
+                            <div class="restaurant-label">🍷 夜食</div>
+                        </div>
+                    </div>
                     
                     <div class="detail-section">
                         <div class="detail-label">予算</div>
