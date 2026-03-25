@@ -188,6 +188,10 @@
         .restaurant-image.no-image {
             background: linear-gradient(135deg, #e0e0e0 0%, #f5f5f5 100%);
             color: #999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9em;
         }
         
         .restaurant-info {
@@ -437,7 +441,7 @@
         
         function renderRestaurantCard(restaurant) {
             const imageHtml = restaurant.imageUrls && restaurant.imageUrls.length > 0
-                ? `<img src="${restaurant.imageUrls[0]}" alt="${restaurant.name}">`
+                ? `<img src="${restaurant.imageUrls[0]}" alt="${restaurant.name}" onerror="this.parentElement.innerHTML='<div class=\"no-image\">写真を準備中...</div>'">`
                 : `<div class="no-image">写真を準備中...</div>`;
             
             const reservationBadge = restaurant.reservation === '要予約'
